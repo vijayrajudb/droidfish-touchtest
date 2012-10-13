@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="library_whitelist">
+    
+    <!-- Include all of the 3rd-party libraries that need to be woven -->
+    <!-- <fileset id="touchtest.additional.jars" dir="libs" includes="android-support-v4.jar" /> -->
+    
+</project>

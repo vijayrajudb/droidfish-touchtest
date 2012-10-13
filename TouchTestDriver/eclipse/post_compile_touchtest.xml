@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="post_compile_touchtest" basedir="../..">
+    
+  <dirname property="ant.file.dir" file="${ant.file}"/>
+  <include file="${ant.file.dir}/library_whitelist.xml" />
+
+  <target name="post-compile-touchtest">
+      
+    <property name="eclipse.running" value="true" />
+    <property name="touchtest.disable.jar.restore" value="true" />
+
+    <loadproperties srcFile="${eclipse.workspace}/.metadata/.plugins/org.eclipse.core.runtime/.settings/com.android.ide.eclipse.adt.prefs" />
+    <property name="sdk.dir" value="${com.android.ide.eclipse.adt.sdk}" />
+    <property name="out.classes.absolute.dir" value="${eclipse.project.path}/bin/classes"/>
+    
+    <!-- jar file from where the tasks are loaded -->
+    <path id="android.antlibs">
+      <pathelement path="${sdk.dir}/tools/lib/anttasks.jar" />
+    </path>
+
+    <!-- Custom tasks -->
+    <taskdef resource="anttasks.properties" classpathref="android.antlibs" />
+    
+    <loadproperties srcFile="${eclipse.project.path}/project.properties" />
+    
+      <gettarget
+        androidJarFileOut="project.target.android.jar"
+        androidAidlFileOut="project.target.framework.aidl"
+        bootClassPathOut="project.target.class.path"
+        targetApiOut="project.target.apilevel"
+        minSdkVersionOut="project.minSdkVersion" />
+    
+      <dependency
+        libraryFolderPathOut="project.library.folder.path"
+        libraryPackagesOut="project.library.packages"
+        libraryManifestFilePathOut="project.library.manifest.file.path"
+        libraryResFolderPathOut="project.library.res.folder.path"
+        libraryBinAidlFolderPathOut="project.library.bin.aidl.folder.path"
+        libraryNativeFolderPathOut="project.library.native.folder.path"
+        jarLibraryPathOut="project.all.jars.path"
+        targetApi="${project.target.apilevel}"
+        verbose="${verbose}" />
+
+    <path id="touchtest.antlibs">
+      <fileset dir="TouchTestDriver">
+        <include name="*.jar" />
+      </fileset>
+    </path>
+
+    <taskdef resource="touchtest.anttasks.properties" classpathref="touchtest.antlibs" />
+
+    <touchtest-post-compile>
+      <additionalJars>
+        <!-- Defined in library_whitelist.xml -->
+        <fileset refid="touchtest.additional.jars" />
+      </additionalJars>
+    </touchtest-post-compile>
+  
+  </target>
+
+</project>

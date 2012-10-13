@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Runs Ant using the shell, instead of Eclipse's built-in support for Ant builders,
+# to avoid classpath conflicts with Eclipse's version of AspectJ (if the AJDT plug-in
+# is installed).
+
+ECLIPSE_HOME="$1"
+ECLIPSE_WORKSPACE="$2"
+PROJECT_HOME="$3"
+
+ECLIPSE_ANT_HOME=`find /Applications/eclipse/plugins -maxdepth 1 -name org.apache.ant* | head -1`
+
+cd "$PROJECT_HOME/TouchTestDriver/eclipse"
+/bin/sh "$ECLIPSE_ANT_HOME/bin/ant" -f post_compile_touchtest.xml -Declipse.workspace="$ECLIPSE_WORKSPACE" -Declipse.project.path="$PROJECT_HOME" -Declipse.running=true -Dtouchtest.disable.jar.restore=true post-compile-touchtest

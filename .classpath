@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><classpath>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="src" path="/TouchTestDriver">
+		<attributes>
+			<attribute name="org.eclipse.ajdt.aspectpath" value="org.eclipse.ajdt.aspectpath"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/TouchTestDriver-APIv11"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/TouchTestDriver-APIv12"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

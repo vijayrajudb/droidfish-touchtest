@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="51" android:versionName="1.44" package="org.petero.droidfish">
+
+    <supports-screens android:anyDensity="true" android:largeScreens="true"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    
+    <uses-sdk android:minSdkVersion="3" android:targetSdkVersion="10"/>
+
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:configChanges="orientation|keyboardHidden" android:label="@string/app_name" android:name=".DroidFish">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="application/x-chess-pgn"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="droidfish"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="touchtest-0ac3e748-dba0-4968-94f5-786a20d48f4c"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        <intent-filter>
+                <data android:scheme="touchtest-6b4c3026-0e0e-469a-bc09-7710cb3753c4"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        <intent-filter>
+                <data android:scheme="touchtest-1ba92395-4f15-41f2-bca8-78ac3b1e2ecc"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        <intent-filter>
+                <data android:scheme="touchtest-d2b09f7a-3093-4981-889c-72b62ee0846f"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        <intent-filter>
+                <data android:scheme="touchtest-5e6fc518-7339-4091-b6c3-ae9e5e0321bd"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        <intent-filter>
+                <data android:scheme="touchtest-64b0a422-7a0b-4e3f-8e5d-41a5d914b275"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+    </activity>
+        <activity android:label="@string/preferences" android:name=".activities.Preferences">
+        </activity>
+        <activity android:configChanges="orientation" android:label="@string/edit_board" android:name=".activities.EditBoard">
+        </activity>
+        <activity android:configChanges="orientation" android:label="@string/load_game_title" android:name=".activities.EditPGNLoad">
+        </activity>
+        <activity android:configChanges="orientation" android:label="@string/save_game_title" android:name=".activities.EditPGNSave">
+        </activity>
+        <activity android:configChanges="orientation" android:label="@string/load_scid_game_title" android:name=".activities.LoadScid">
+        </activity>
+        <activity android:label="@string/cpu_warning_title" android:name=".activities.CPUWarning">
+        </activity>
+
+        <service android:enabled="true" android:exported="false" android:name="com.soasta.android.touchtest.TouchTestService"/>
+    </application>
+
+</manifest>
